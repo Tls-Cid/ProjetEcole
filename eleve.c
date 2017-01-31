@@ -15,9 +15,9 @@ void SaisirEleve(Eleve_t *E){
     fscanf(stdin,"%s", E->prenom);
     getchar();
     do{
-        printf("\nVeuillez entrer le sexe de l'eleve (F pour fille ou M pour garçon) : ");
+        printf("\nVeuillez entrer le sexe de l'eleve (f pour fille ou g pour garçon) : ");
         fscanf(stdin,"%c", &sexe);
-    }while(sexe!='M' && sexe!='F');
+    }while(sexe!='g' && sexe!='f');
     E->sexe=sexe;
     printf("\nVeuillez entrer la date de naissance de l'eleve (jj/mm/aaaa) : ");
     scanf("%d/%d/%d", &j, &m, &a);
@@ -33,12 +33,12 @@ void AfficherEleve(Eleve_t E){
     printf("Nom : %s\tPrenom : %s\nSexe : %c\tDate de naissance : %d/%d/%d\n", E.nom, E.prenom, E.sexe, E.dateNaissance.tm_mday, E.dateNaissance.tm_mon, E.dateNaissance.tm_year);
     printf("\n***************************************\n");*/
     longueur=strlen(E.nom);
-    printf("|%s",E.nom);
+    printf(" | %s",E.nom);
     for(i=0;i<20-longueur;i++){
         printf(" ");
     }
     longueur=strlen(E.prenom);
-    printf("|%s",E.prenom);
+    printf("| %s",E.prenom);
     for(i=0;i<20-longueur;i++){
         printf(" ");
     }
@@ -74,7 +74,7 @@ void ModifierEleve(Eleve_t *E){
             do{
                 printf("\nVeuillez entrer le sexe de l'eleve (f pour fille ou g pour garçon) : ");
                 fscanf(stdin,"%c", &sexe);
-            }while(sexe!='M' && sexe!='F');
+            }while(sexe!='g' && sexe!='f');
             E->sexe=sexe;
             printf("\n***Modification effectuee***\n");
             break;
